@@ -29,8 +29,7 @@ void RuckusBot::begin()
     delay(5);
     mpu6050.begin();
     // Initial calibration of the gyro
-     calibrateGyro();
-    
+     calibrateGyro();    
 
     // Start servos
     // Allow allocation of all timers
@@ -77,6 +76,20 @@ void RuckusBot::begin()
             max : 180,
             increment : 1,
             value : 165
+        };
+         config->TunableBotSettings["leftZero"] = Configuration::BotSetting {
+            displayname : "Left Zero Point",
+            min : 30,
+            max : 150,
+            increment : 1,
+            value : 90
+        };
+        config->TunableBotSettings["rightZero"] = Configuration::BotSetting {
+            displayname : "Right Zero Point",
+            min : 30,
+            max : 150,
+            increment : 1,
+            value : 90
         };
         config->TunableBotSettings["linearTime"] = Configuration::BotSetting {
             displayname : "Linear Movement Time",
@@ -177,8 +190,8 @@ void RuckusBot::turn(turnType direction, int magnitude)
         delay(20);
     }
     // Stop motors
-    left.write(90);
-    right.write(90);
+    left.write(config->TunableBotSettings["leftZero"].value);
+    right.write(config->TunableBotSettings["rightZero"].value);
 }
 
 /// @brief Has a bot perform a lateral (slide) motion.
@@ -249,8 +262,8 @@ void RuckusBot::driveForward(int magnitude)
         delay(50);
     }
     // Stop motors
-    left.write(90);
-    right.write(90);
+    left.write(config->TunableBotSettings["leftZero"].value);
+    right.write(config->TunableBotSettings["rightZero"].value);
 }
 
 /// @brief Called when the robot needs to drive backward
@@ -296,8 +309,8 @@ void RuckusBot::driveBackward(int magnitude)
         delay(50);
     }
     // Stop the motors
-    left.write(90);
-    right.write(90);
+    left.write(config->TunableBotSettings["leftZero"].value);
+    right.write(config->TunableBotSettings["rightZero"].value);
 }
 
 /// @brief Called when a robot is told to move, but is blocked
