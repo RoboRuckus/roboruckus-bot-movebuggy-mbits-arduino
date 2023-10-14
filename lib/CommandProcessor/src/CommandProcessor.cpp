@@ -142,24 +142,24 @@ void CommandProcessor::ExecuteMoveCommand(Movements move, int magnitude)
         Serial.println("Moving");
         switch (move)
         {
-        case Movements::Left:
-            bot->turn(RuckusBot::turnType::Left, magnitude);
-            break;
-        case Movements::Right:
-            bot->turn(RuckusBot::turnType::Right, magnitude);
-            break;
-        case Movements::Forward:
-            bot->driveForward(magnitude);
-            break;
-        case Movements::Backward:
-            bot->driveBackward(magnitude);
-            break;
-        case Movements::LeftLateral:
-            bot->slide(RuckusBot::turnType::Left, magnitude);
-            break;
-        case Movements::RightLateral:
-            bot->slide(RuckusBot::turnType::Right, magnitude);
-            break;
+            case Movements::Left:
+                bot->turn(RuckusBot::turnType::Left, magnitude);
+                break;
+            case Movements::Right:
+                bot->turn(RuckusBot::turnType::Right, magnitude);
+                break;
+            case Movements::Forward:
+                bot->driveForward(magnitude);
+                break;
+            case Movements::Backward:
+                bot->driveBackward(magnitude);
+                break;
+            case Movements::LeftLateral:
+                bot->slide(RuckusBot::turnType::Left, magnitude);
+                break;
+            case Movements::RightLateral:
+                bot->slide(RuckusBot::turnType::Right, magnitude);
+                break;
         }
     }
     else
@@ -177,16 +177,18 @@ void CommandProcessor::ExecuteConfigCommand(ConfigCommands command, String paylo
 {
     switch (command)
     {
-        case ConfigCommands::AssignPlayer:
-            {
-            int player = payload.substring(0, payload.indexOf(":")).toInt();
-            int botNumber = payload.substring(payload.indexOf(":") + 1).toInt();
+        case ConfigCommands::AssignPlayer:   
+        {         
+            int player = 0;
+            int botNumber = 0;
             if (player != 0)
+            {
                 bot->playerAssigned(player);
                 config->BotConfig.RobotNumber = botNumber;
                 config->BotConfig.PlayerNumber = player;
             }
             break;
+        }
         case ConfigCommands::Reset:
             bot->reset();
             config->BotConfig.PlayerNumber = 0;
@@ -198,10 +200,12 @@ void CommandProcessor::ExecuteConfigCommand(ConfigCommands command, String paylo
             bot->notReady();
             break;
         case ConfigCommands::UpdateImage:
+        {
             int image = payload.substring(0, payload.indexOf(":")).toInt();
             int shouldCache = payload.substring(payload.indexOf(":") + 1).toInt();
             bot->showImage((RuckusBot::images)image, (RuckusBot::colors)config->TunableBotSettings["robotColor"].value, shouldCache == 1 ? true : false);
             break;
+        }
     }
 }
 
