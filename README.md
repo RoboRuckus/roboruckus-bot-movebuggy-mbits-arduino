@@ -7,7 +7,7 @@
 
 ## Materials
 1. [:MOVE mini MK2 Buggy](https://kitronik.co.uk/products/5652-move-mini-mk2-buggy-kit-excl-microbit) (Also available from [SparkFun Electronics](https://www.sparkfun.com/products/16787) and [RobotShop](https://www.robotshop.com/products/kitronik-move-mini-mk2-buggy-kit-w-o-microbit))
-2. [Mbits](https://www.elecrow.com/mbits.html) (Currently broken on their website, but can be purchased from their [official AliExpress](https://www.aliexpress.com/item/1005003540049324.html), [RobotShop](https://www.robotshop.com/products/elecrow-mbits-esp32-dev-board-based-on-letscode-scratch-30-arduino), or an [AliExpress reseller](https://www.aliexpress.com/item/1005005524784099.html))
+2. [Mbits](https://www.elecrow.com/mbits.html) (Currently broken on their website, but can be purchased from their [official AliExpress](https://www.aliexpress.com/item/1005003540049324.html), [RobotShop](https://www.robotshop.com/products/elecrow-mbits-esp32-dev-board-based-on-letscode-scratch-30-arduino), or an [AliExpress reseller](https://www.aliexpress.com/item/1005005524784099.html). You can also [contact Elecrow directly](https://www.elecrow.com/contacts) to request an order of Mbits).
 
 ## Assembly
 Assemble the robot according to the instructions provided in the robot kit.
@@ -30,15 +30,15 @@ The A and B buttons on the Mbits have several functions depending on when and ho
 This will reset the currently saved Wi-Fi and game server settings. When this is accomplished, the robot will display a check-mark and reboot, you should release the button when you see the check-mark. See [Connecting to the Game](#connecting-to-the-game).
 
 #### Press A
-Pressing the A button any time after the robot has successfully connected to the game server will have it recalibrate the onboard gyroscope. This is automatically done when the robot is powered on, but if the robot is drifting or not turning properly, this can be repeated to help. When the A button is pressed, the robot will display a duck symbol, the robot will display the previous image when the calibration is finished. **The robot should be kept perfectly still during the calibration process.** This can be done anytime, even while playing the game, but shouldn't be done during the movement phase of the game.
+Pressing the A button any time after the robot has successfully connected to the game server will have it recalibrate the onboard gyroscope. This is automatically done when the robot is powered on, but if the robot is drifting or not turning properly, this can be repeated to help. When the A button is pressed the robot will display a duck symbol during calibration, then display the previous image when the calibration is finished. **The robot should be kept perfectly still during the calibration process.** This can be done anytime, even while playing the game, but shouldn't be done during the movement phase of the game.
 
 #### Press B
 Pressing the B button any time after the robot has successfully connected to the game server will have it display the last octet of its IP address on the screen, one number at a time. This can be useful for troubleshooting or for connecting to the robot to [update the firmware](#updating-the-firmware).
 
 ### Connecting to the Game
-If this is the first time powering on the robot it may take a while as it needs to format and mount the SPIFFS. Once it's finished the initial boot, you'll need to configure it to connect to the Wi-Fi network used by the game server as well as the game server's IP address. When you power on the robot for the first time (or if the expected Wi-Fi network is not available) you'll need to wait a minute or so until the screen displays a duck symbol. This is the symbol used to indicate that the robot is in a setup mode.
+If this is the first time powering on the robot it may take a while as it needs to format and mount the SPIFFS. Once it's finished the initial boot, you'll need to configure it to connect to the Wi-Fi network used by the game server as well as the game server's IP address and port number. When you power on the robot for the first time (or if the expected Wi-Fi network is not available) you'll need to wait a minute or so until the screen displays a duck symbol. This is the symbol used to indicate that the robot is in a setup mode.
 
-Here, there robot has created its own Wi-Fi network named called "Ruckus_XXXXXXX" the X's will be unique to each robot. Connect to that network, ideally with your phone, and visit the IP address `192.168.4.1` to reach the robot's setup interface. Choose "Configure Wi-Fi" to setup the robot, and pick the Wi-Fi address you want to robot to connect to. Enter the Wi-Fi password, IP address of the game server, and the port used by the game server, as shown below.
+Once in the Wi-Fi setup mode, the robot will create its own Wi-Fi network named "Ruckus_XXXXXXX", where the X's will be unique to each robot. Connect to that network, ideally with your phone, and visit the IP address `192.168.4.1` to reach the robot's setup interface (a phone may do this automatically). Choose "Configure Wi-Fi" to setup the robot, and pick the Wi-Fi address you want the robot to connect to. Enter the Wi-Fi password, IP address of the game server, and the port used by the game server, as shown below.
 
 ![photo of assembled robot](/media/RobotWifiGateway.png)
 
