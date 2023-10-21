@@ -179,8 +179,8 @@ void CommandProcessor::ExecuteConfigCommand(ConfigCommands command, String paylo
     {
         case ConfigCommands::AssignPlayer:   
         {         
-            int player = 0;
-            int botNumber = 0;
+            int player = payload.substring(0, payload.indexOf(":")).toInt();
+            int botNumber = payload.substring(payload.indexOf(":") + 1).toInt();
             if (player != 0)
             {
                 bot->playerAssigned(player);
