@@ -33,7 +33,6 @@
 #include <Arduino.h>
 #include <FastLED.h>
 #include <Wire.h>
-#include <FastLED.h>
 #include <MPU6050_tockn.h>
 #include <ESP32Servo.h>
 #include <Configuration.h>
@@ -95,7 +94,7 @@ class RuckusBot
         enum colors { Red, Green, Blue, Yellow, Purple, Orange, Cyan, White };
 
         /// @brief Enum of image maps for the screen
-        enum images { Clear, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Happy, Sad, Surprised, Duck, Check };
+        enum images {Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Happy, Sad, Surprised, Duck, Check, Clear };
 
         /// @brief True if the robot is in setup mode
         bool inSetupMode = false;
@@ -138,8 +137,8 @@ class RuckusBot
         Servo left, right;
 
         /// @brief Image maps for display. Binary maps for each row, 1 on, 0 off.
-        uint8_t image_maps[15][5] = {
-            {B00000,B00000,B00000,B00000,B00000}, // Clear
+        uint8_t image_maps[16][5] = {
+            {B01100,B10010,B10010,B10010,B01100}, // 0
             {B00100,B01100,B00100,B00100,B01110}, // 1
             {B11100,B00010,B01100,B10000,B11110}, // 2
             {B11110,B00010,B00100,B10010,B01100}, // 3
@@ -153,7 +152,8 @@ class RuckusBot
             {B01010,B01010,B00000,B01110,B10001}, // Sad
             {B01010,B00000,B00100,B01010,B00100}, // Surprised
             {B01100,B11100,B01111,B01110,B00000}, // Duck
-            {B00000,B00001,B00010,B10100,B01000}  // Check
+            {B00000,B00001,B00010,B10100,B01000}, // Check
+            {B00000,B00000,B00000,B00000,B00000}  // Clear
         };
 
         /// @brief Color maps for display

@@ -48,7 +48,7 @@ class CommandProcessor
         QueueHandle_t CommandPayloadQueue;
 
         bool AddToQueue(int command[4]);
-        void ProcessorTask();
+        void ProcessTask();
         void ExecuteConfigCommand(ConfigCommands command, String payload);
         void ExecuteMoveCommand(Movements move, int magnitude);
         void ExecuteSetupCommand(SetupCommands command, String payload);

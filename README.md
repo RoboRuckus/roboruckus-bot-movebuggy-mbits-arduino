@@ -21,7 +21,7 @@ Assemble the robot according to the instructions provided in the robot kit.
 6. Upload the code using the [PlatformIO toolbar](https://docs.platformio.org/en/latest/integration/ide/vscode.html#ide-vscode-toolbar).
 
 ## Operation
-Using the robot is for the part very simple, just turn it on! However, there is some first-time setup you'll need to do, as well as some advanced tuning options, which are all detailed below.
+Using the robot is, for the most part, very simple, just turn it on! However, there is some first-time setup you'll need to do, as well as some advanced tuning options, which are all detailed below.
 
 ### The A and B buttons
 The A and B buttons on the Mbits have several functions depending on when and how they are pressed:
