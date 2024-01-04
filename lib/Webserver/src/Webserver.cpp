@@ -58,7 +58,7 @@ void Webserver::ServerStart()
     });
 
     // Receives damage
-    server->on("/takeDamage", HTTP_POST, [this](AsyncWebServerRequest *request) {
+    server->on("/takeDamage", HTTP_PUT, [this](AsyncWebServerRequest *request) {
         if(request->hasParam("magnitude", true))
         {
             this->command->AddDamageCommandToQueue(request->getParam("magnitude", true)->value().toInt());
