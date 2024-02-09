@@ -40,7 +40,7 @@ If this is the first time powering on the robot it may take a while as it needs 
 
 Once in the Wi-Fi setup mode, the robot will create its own Wi-Fi network named "Ruckus_XXXXXXX", where the X's will be a string of numbers and letters. Connect to that network (default password is RuckusBot), ideally with your phone, and visit the IP address `192.168.4.1` to reach the robot's setup interface (a phone may do this automatically). Choose "Configure Wi-Fi" to setup the robot, and pick the Wi-Fi network you want the robot to connect to. Enter the Wi-Fi password, IP address of the game server, and the port used by the game server, as shown below.
 
-![photo of assembled robot](/media/RobotWifiGateway.png)
+![Wi-Fi Gateway Screenshot](/media/RobotWifiGateway.png)
 
 If the Wi-Fi credentials are good, the robot will reboot and attempt to connect to the game server, and you're done! To reset the Wi-Fi or game server settings, see [Hold A During Boot](#hold-a-during-boot).
 
