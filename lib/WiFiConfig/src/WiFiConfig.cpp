@@ -53,7 +53,7 @@ void WiFiConfig::connectWiFi() {
             // Allocate a buffer to store contents of the file.
             char buf[size];
             // Create JSON object to hold data
-            StaticJsonDocument<256> json;
+            JsonDocument json;
             configFile.readBytes(buf, size);
             configFile.close();
             DeserializationError result = deserializeJson(json, buf);
@@ -132,7 +132,7 @@ void WiFiConfig::connectWiFi() {
     if (shouldSaveConfig)
     {
         Serial.println("Saving WiFi config");
-        StaticJsonDocument<256> json;
+        JsonDocument json;
         json["game_server"] = game_server;
         json["game_port"] = game_port;
 

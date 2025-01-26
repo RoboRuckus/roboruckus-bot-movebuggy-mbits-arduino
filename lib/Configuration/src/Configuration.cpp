@@ -8,7 +8,7 @@ bool Configuration::updateSettings(String settings) {
         // Prase settings string
         settings.trim();
         Serial.println("New settings : " + settings);
-        DynamicJsonDocument new_settings(2048);
+        JsonDocument new_settings;
         DeserializationError error = deserializeJson(new_settings, settings);
         if (error) 
         {
@@ -55,7 +55,7 @@ bool Configuration::saveSettings() {
 /// @brief Retrieves the current robot settings.
 /// @return A JSON string of all the modifiable movement parameters.
 String Configuration::getSettings() {
-    DynamicJsonDocument settings_doc(2048);
+    JsonDocument settings_doc;
     settings_doc["name"] = BotConfig.RobotName;
     for (auto const& pair : TunableBotSettings)
     {

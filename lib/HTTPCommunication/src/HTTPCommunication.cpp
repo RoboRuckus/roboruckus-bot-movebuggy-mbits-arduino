@@ -14,7 +14,7 @@ HTTPCommunication::HTTPCommunication(Configuration* Config)
 bool HTTPCommunication::JoinGame(String name)
 {
     Serial.println("Sending bot info");
-    StaticJsonDocument<256> botInfo;
+    JsonDocument botInfo;
     botInfo["name"] = name;
     botInfo["ip"] = getLocalAddress().toString();
     String info;
